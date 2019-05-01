@@ -6,4 +6,25 @@
     <select id="findUserById" parameterType="int" resultType="com.kurt.mybatis.pojo.User">
         select *from user where id = #{id}
     </select>
+    <!--模糊查询-->
+    <select id="findUserByUsername" parameterType="java.lang.String" resultType="com.kurt.mybatis.pojo.User">
+        select * from user where username like '%${value}%'
+    </select>
+    <!--插入-->
+    <insert id="insertUser" parameterType="com.kurt.mybatis.pojo.User">
+      <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+          select LAST_INSERT_ID()
+      </selectKey>
+        insert into user(username,birthday,sex,address) values
+        (#{username},#{birthday},#{sex},#{address})
+    </insert>
+    <!--delete-->
+    <delete id="deleteUser" parameterType="int">
+        delete from user where id = #{id}
+    </delete>
+    <!--UPDATE-->
+    <update id="updateUser" parameterType="com.kurt.mybatis.pojo.User">
+        update user set username=#{username},birthday=#{birthday},sex=#{sex},address=#{address}
+        where id= #{id}
+    </update>
 </mapper>
