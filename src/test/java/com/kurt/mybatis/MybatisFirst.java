@@ -1,4 +1,4 @@
-package com.kurt.mybatis.dao;
+package com.kurt.mybatis;
 
 import com.kurt.mybatis.pojo.User;
 import org.apache.ibatis.io.Resources;
