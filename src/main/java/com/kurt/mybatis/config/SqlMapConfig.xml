@@ -4,6 +4,10 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <properties resource="db.properties"></properties>
+    <!--别名为其包-->
+    <typeAliases>
+       <package name="com.kurt.mybatis.pojo"/>
+    </typeAliases>
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC" />
@@ -15,7 +19,9 @@
             </dataSource>
         </environment>
     </environments>
+    <!--扫描整个mapper-->
     <mappers>
-        <mapper resource="UserMapper.xml" />
+        <package name="com.kurt.mybatis.mapper"/>
     </mappers>
+
 </configuration>

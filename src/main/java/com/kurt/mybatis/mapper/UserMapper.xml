@@ -10,6 +10,8 @@
     <select id="findUserByUsername" parameterType="java.lang.String" resultType="com.kurt.mybatis.pojo.User">
         select * from user where username like '%${value}%'
     </select>
+    <!--获取用户列表总数-->
+    <select id="findUserCount" parameterType=""
     <!--插入-->
     <insert id="insertUser" parameterType="com.kurt.mybatis.pojo.User">
       <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
